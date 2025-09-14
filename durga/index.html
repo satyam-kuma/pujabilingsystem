@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Puja Pandal 2025</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<script src="script.js"></script>
+
+<!-- HERO with Durga banner. Save the generated image to assets/durga.png -->
+<section class="hero" aria-label="Hero">
+  <img class="banner" src="https://tse3.mm.bing.net/th/id/OIP.d7zXdw-E71mgK6UzHv7ypwHaEK?pid=Api&P=0&h=180S" alt="Goddess Durga Banner (save as assets/durga.png)">
+  <div class="hero-band" role="banner">
+    <h1>HARMU PUJA PANDAL </h1>
+    <h2>PANCH MANDIR</h2>
+    <p>Faith • Culture • Unity</p>
+  </div>
+</section>
+
+<!-- navigation -->
+<nav aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="#gallery">GALLERY</a>
+    <a href="#chanda">CHANDA COLLECTION</a>
+    <a href="#records">RECORDS</a>
+    <a href="#committee">COMMITTEE</a>
+  </div>
+</nav>
+
+<!-- page wrapper -->
+<div class="wrap">
+
+  <!-- Gallery -->
+  <section id="gallery">
+    <div class="section-title">All Years Gallery</div>
+    <div class="gallery" aria-hidden="false">
+      <div class="thumb"><img src="https://i.ytimg.com/vi/U4PTg5zsH4U/maxresdefault.jpg" alt="Pandal 2022"><div style="margin-top:8px;color:var(--muted);font-weight:700;">Pandal 2022</div></div>
+      <div class="thumb"><img src="https://i.ytimg.com/vi/7ZMU6qz8cto/maxresdefault.jpg" alt="Pandal 2023"><div style="margin-top:8px;color:var(--muted);font-weight:700;">Pandal 2023</div></div>
+      <div class="thumb"><img src="https://i.ytimg.com/vi/FiggyxgXTMo/maxresdefault.jpg" alt="Pandal 2024"><div style="margin-top:8px;color:var(--muted);font-weight:700;">Pandal 2024</div></div>
+      <div class="thumb"><img src="https://wallpapercave.com/wp/wp9294577.jpg" alt="Pandal 2025"><div style="margin-top:8px;color:var(--muted);font-weight:700;">Pandal 2025</div></div>
+    </div>
+  </section>
+
+  <!-- main grid (form | records) -->
+  <div class="main-grid">
+    <!-- left: form -->
+    <div>
+      <div class="section-title" style="text-align:left; margin-left:6px;">Contribute Chanda</div>
+      <div class="card">
+        <form id="chandaForm">
+          <label for="year">Year</label>
+          <select id="year" required></select>
+
+          <label for="date">Date</label>
+          <input id="date" type="date" required>
+
+          <label for="name">Name</label>
+          <input id="name" type="text" placeholder="Full name" required>
+
+          <label for="address">Address</label>
+          <textarea id="address" placeholder="Street / area" ></textarea>
+
+          <label for="phone">Phone</label>
+          <input id="phone" type="tel" inputmode="numeric" placeholder="10-digit number">
+
+          <label for="amount">Amount (₹)</label>
+          <input id="amount" type="number" min="0" step="1" placeholder="Enter amount" required>
+
+          <label for="status">Status</label>
+          <select id="status">
+            <option value="ok">OK</option>
+            <option value="due">Due</option>
+          </select>
+
+          <div style="display:flex;gap:12px;align-items:center;margin-top:12px;">
+            <div style="width:120px;height:120px;border-radius:10px;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow);">
+              <img src="w1.jpg " alt="QR" style="width:88px;height:88px;object-fit:contain;">
+            </div>
+            <div style="flex:1;color:var(--muted);">
+              <div style="font-weight:800;margin-bottom:6px">Scan to Pay</div>
+              <div style="font-size:13px">Use your UPI/Wallet to scan the QR and complete payment. Or record manually here.</div>
+            </div>
+          </div>
+
+          <button class="btn" type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- right: records -->
+    <aside class="records">
+      <div class="section-title" style="text-align:left; margin-left:6px;">Chanda Records</div>
+      <div class="card table-wrap">
+        <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:12px;">
+          <label style="font-weight:800;color:var(--muted);">Filter Year:</label>
+          <select id="filterYear" style="padding:8px;border-radius:8px;border:1px solid #eee;">
+            <option value="all">All Years</option>
+          </select>
+          <button id="downloadCsv" style="margin-left:auto;padding:8px 12px;border-radius:8px;border:0;background:var(--accent);color:#fff;font-weight:800;cursor:pointer;">Export CSV</button>
+        </div>
+
+        <table id="collectionTable" aria-live="polite">
+          <thead>
+            <tr><th>Year</th><th>Date</th><th>Name</th><th>Amount</th><th>Status</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+
+        <div class="qr" style="margin-top:12px;">
+          <div style="text-align:center">
+            <img src=" https://tse2.mm.bing.net/th/id/OIP.msuwqvbdypaesVyen_oomgHaEK?pid=Api&P=0&h=180" alt="QR" style="width:96px;height:96px;object-fit:contain;"><div style="font-weight:700;margin-top:6px;color:var(--muted)">Scan QR to Pay</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="totals card" id="totalsBox" style="text-align:center;">
+        Total Collected: ₹<span id="totalOk">0</span><br>
+        Total Due: ₹<span id="totalDue">0</span>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Committee -->
+  <section id="committee" style="margin-top:30px;">
+    <div class="section-title" style="text-align:center; font-size:24px; margin-bottom:20px;">Committee Members</div>
+    
+    <div class="committee" style="display:flex; gap:20px; flex-wrap:wrap; justify-content:center; transition: transform 0.3s;">
+      
+      <!-- Card 1 -->
+      <div class="member" style="text-align:center; background:#f9f9f9; padding:20px; border-radius:10px; width:200px; box-shadow:0 4px 6px rgba(0,0,0,0.1); transition: transform 0.3s; cursor:pointer;"
+           onmouseover="this.style.transform='scale(1.05)'" 
+           onmouseout="this.style.transform='scale(1)'">
+        <img src="ajju.jpeg" alt="Ajay Kumar" style="width:150px; height:150px; border-radius:50%; object-fit:cover;">
+        <h4 style="margin:10px 0 4px">Ajay Kumar</h4>
+        <div style="color:#555">President<br>📞 6204520148</div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="member" style="text-align:center; background:#f9f9f9; padding:20px; border-radius:10px; width:200px; box-shadow:0 4px 6px rgba(0,0,0,0.1); transition: transform 0.3s; cursor:pointer;"
+           onmouseover="this.style.transform='scale(1.05)'" 
+           onmouseout="this.style.transform='scale(1)'">
+        <img src="nis.jpeg " alt="Nishant Singh Rajput" style="width:150px; height:150px; border-radius:50%; object-fit:cover;">
+        <h4 style="margin:10px 0 4px">Nishant Singh Rajput</h4>
+        <div style="color:#555">Karyakarta<br>📞 7667297889</div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="member" style="text-align:center; background:#f9f9f9; padding:20px; border-radius:10px; width:200px; box-shadow:0 4px 6px rgba(0,0,0,0.1); transition: transform 0.3s; cursor:pointer;"
+           onmouseover="this.style.transform='scale(1.05)'" 
+           onmouseout="this.style.transform='scale(1)'">
+        <img src="satyam.jpeg" alt="Satyam Kumar" style="width:150px; height:150px; border-radius:50%; object-fit:cover;">
+        <h4 style="margin:10px 0 4px">Satyam Kumar</h4>
+        <div style="color:#555">Developer<br>📞 6299007099</div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    &copy; <span id="yearNow"></span> Puja Pandal Committee — All rights reserved
+  </footer>
+</div>
+
+<!-- little toast -->
+<div id="toast" class="toast" role="status" aria-live="polite">Saved</div>
+
+<script src="script.js"></script>
+</body>
+</html>
